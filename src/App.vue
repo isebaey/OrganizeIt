@@ -1,13 +1,33 @@
 <script setup>
-import NavBar from './components/icons/NavBar.vue'
+import NavBar from "./components/NavBar.vue";
+import BoardColumn from "./components/BoardColumn.vue";
 </script>
 
 <template>
-  <header>
-    <NavBar />
-  </header>
+  <div class="container-fluid vh-100">
+    <div class="row">
+      <!-- Fixed Sidebar  -->
+      <header class="col-md-1 vh-100">
+        <NavBar />
+      </header>
 
-  <main></main>
+      <!-- Main board content -->
+      <main class="col-11">
+        <board-column />
+      </main>
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* Horizontal scroll for columns */
+.board-container {
+  overflow-x: auto;
+  padding: 1rem;
+  white-space: nowrap;
+}
+
+.bg-backGround {
+  background: #f3f5f6;
+}
+</style>
