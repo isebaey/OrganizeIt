@@ -1,13 +1,19 @@
+<!-- src/components/ShowWhenNoTasks.vue -->
 <template>
-  <div class="no-tasks d-flex flex-column align-items-center h3 py-5">
-    <p class="my-auto">No Tasks 🚫</p>
+  <div
+    class="d-flex flex-column align-items-center justify-content-center mt-5"
+  >
+    <i class="fas fa-tasks fa-3x mb-3 text-secondary"></i>
+    <p class="text-secondary">No Tasks</p>
   </div>
 </template>
 
 <script>
 export default {
-  components: {},
+  name: "ShowWhenNoTasks",
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+/* Optional: Additional styling if needed */
+</style>

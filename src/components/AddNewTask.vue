@@ -1,86 +1,94 @@
+<!-- src/components/AddNewTask.vue -->
 <template>
   <!-- Add Task Form -->
-  <div class="card mx-auto my-2 shadow-sm border-0 rounded-3 w-75">
-    <div class="card-body">
+  <div class="bg-offwhite rounded-lg shadow p-4 my-3">
+    <form @submit.prevent="addTask">
       <div class="mb-3">
         <label for="taskName" class="form-label">Task Name</label>
         <input
-          v-model="taskName"
+          v-model="task.taskName"
           type="text"
-          class="form-control"
           id="taskName"
+          class="form-control"
           placeholder="Enter task name"
+          required
         />
       </div>
       <div class="mb-3">
         <label for="taskDescription" class="form-label">Task Description</label>
         <textarea
-          v-model="taskDescription"
-          class="form-control"
+          v-model="task.taskDescription"
           id="taskDescription"
           rows="3"
+          class="form-control"
           placeholder="Enter task description"
+          required
         ></textarea>
       </div>
       <div class="mb-3">
         <label for="taskTag" class="form-label">Task Tag</label>
-        <div class="input-group">
-          <select class="form-select" id="taskTag" v-model="taskTag">
-            <option value="" disabled>Select a Tag</option>
-            <option value="urgent">Urgent</option>
-            <option value="low">Low</option>
-            <option value="completed">Completed</option>
-            <option value="inProgress">In Progress</option>
-          </select>
-        </div>
+        <select
+          v-model="task.taskTag"
+          id="taskTag"
+          class="form-select"
+          required
+        >
+          <option value="" disabled>Select a Tag</option>
+          <option value="urgent">Urgent</option>
+          <option value="low">Low</option>
+          <option value="completed">Completed</option>
+          <option value="inProgress">In Progress</option>
+        </select>
       </div>
-      <button
-        type="submit"
-        class="btn btn-light d-block mx-auto"
-        @click="emitNewTask"
-      >
-        Add Task
-      </button>
-    </div>
+      <div class="d-flex justify-end">
+        <button
+          type="submit"
+          class="btn btn-primary d-flex align-items-center"
+          :disabled="!task.taskName || !task.taskDescription || !task.taskTag"
+          title="Add Task"
+        >
+          <i class="fas fa-plus me-2"></i> Add Task
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
+import { useTasksStore } from "../../stores/tasks";
+
 export default {
+  name: "AddNewTask",
+  props: {
+    arrayName: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      taskName: "",
-      taskDescription: "",
-      taskTag: "",
+      task: {
+        taskName: "",
+        taskDescription: "",
+        taskTag: "",
+      },
     };
   },
   methods: {
-    emitNewTask() {
-      const id = Date.now().toString(); // Generate the ID
-
-      if (this.taskName && this.taskDescription && this.taskTag) {
-        this.$emit("add-new-task", {
-          taskId: id,
-          taskName: this.taskName,
-          taskDescription: this.taskDescription,
-          taskTag: this.taskTag,
-        });
-
-        console.log("Task emitted:", {
-          taskId: id,
-          taskName: this.taskName,
-          taskDescription: this.taskDescription,
-          taskTag: this.taskTag,
-        });
-
-        // Clear the form
-        this.taskName = "";
-        this.taskDescription = "";
-        this.taskTag = "";
-      } else {
-        alert("Please fill in all fields");
-      }
+    addTask() {
+      const taskStore = useTasksStore();
+      taskStore.addTaskToList(this.task, this.arrayName);
+      this.$emit("task-added");
+      this.task = {
+        taskName: "",
+        taskDescription: "",
+        taskTag: "",
+      };
     },
   },
 };
 </script>
+
+<style scoped>
+/* Optional: Additional styling if needed */
+</style>

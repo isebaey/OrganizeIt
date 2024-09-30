@@ -20,10 +20,13 @@ export default {
 
 <style scoped>
 button {
-  transition: 0.3s all;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 button:hover {
-  background: #f5f5f5;
+  background-color: #16a085; /* Dark Turquoise */
+  color: #ffffff;
 }
 </style>

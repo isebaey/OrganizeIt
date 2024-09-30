@@ -1,0 +1,109 @@
+/* src/assets/styles.css */
+
+/* Import Roboto font */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #ecf0f1; /* Off-White */
+  color: #2c3e50; /* Charcoal Gray */
+}
+
+/* Navbar Styles */
+.navbar {
+  width: 80px;
+  background: linear-gradient(180deg, #1abc9c, #2c3e50);
+  color: #ecf0f1;
+}
+
+.navbar a {
+  color: rgba(255, 255, 255, 0.8);
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #1abc9c; /* Turquoise Blue */
+  border-radius: 8px;
+}
+
+/* Task Card Styles */
+.task-card {
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Tag Styles */
+.tag {
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.tag.urgent {
+  background-color: #e74c3c; /* Red */
+}
+
+.tag.low {
+  background-color: #f1c40f; /* Yellow */
+}
+
+.tag.completed {
+  background-color: #27ae60; /* Green */
+}
+
+.tag.inProgress {
+  background-color: #e67e22; /* Orange */
+}
+
+/* View Toggle Styles */
+.view-toggle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.view-toggle i {
+  cursor: pointer;
+  color: #6c757d; /* Gray */
+  transition: color 0.3s;
+  margin-left: 1rem;
+}
+
+.view-toggle i.active {
+  color: #1abc9c; /* Turquoise Blue */
+}
+
+.view-toggle i:hover {
+  color: #1abc9c;
+}
+
+/* Add Task Button Styles */
+.add-task-button {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+
+.add-task-button:hover {
+  background-color: #16a085; /* Dark Turquoise */
+  color: #fff;
+}
+
+/* No Tasks Message */
+.no-tasks {
+  color: #6c757d;
+  font-size: 1.2rem;
+  text-align: center;
+}
