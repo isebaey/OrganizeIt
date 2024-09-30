@@ -26,8 +26,4 @@ import BoardColumn from "./components/BoardColumn.vue";
   padding: 1rem;
   white-space: nowrap;
 }
-
-.bg-backGround {
-  background: #f3f5f6;
-}
 </style>

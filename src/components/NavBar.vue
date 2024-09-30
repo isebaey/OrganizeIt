@@ -5,8 +5,9 @@
     <div class="d-flex flex-column justify-between h-100">
       <!-- Logo Section -->
       <a class="navbar-brand d-flex justify-content-center my-4 w-100" href="#">
-        <img src="../assets/OrganizeIt.png" alt="logo" class="logo" />
+        <i class="fa fa-tasks logo fs-1" title="OrgnizeIt logo"></i>
       </a>
+      <hr class="text-white w-75 mx-auto mt-1" />
 
       <!-- Nav Links  -->
       <ul
@@ -52,8 +53,7 @@
             <p class="h6">Add</p>
           </a>
         </li>
-        <hr class="text-white w-75" />
-        <li class="nav-item mt-5">
+        <li class="nav-item mt-auto">
           <a
             class="nav-link my-2 d-flex justify-center"
             href="#"
@@ -74,11 +74,7 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  },
-};
+export default {};
 </script>
 
 <style scoped>
@@ -89,8 +85,7 @@ export default {
 }
 
 .logo {
-  width: 50px;
-  height: 50px;
+  color: #20bfa9;
 }
 
 .nav-link {

@@ -6,6 +6,7 @@
         :tasks="toDoTasks"
         listTitle="📃 To Do"
         listStyle="text-bg-danger"
+        @task-added="addTaskToList('toDoTasks')"
       />
 
       <!-- In Progress List -->
@@ -13,6 +14,7 @@
         :tasks="inProgressTasks"
         listTitle="📈 In Progress"
         listStyle="text-bg-warning"
+        @task-added="addTaskToList('inProgressTasks')"
       />
 
       <!-- Done List -->
@@ -20,12 +22,14 @@
         :tasks="doneTasks"
         listTitle="✅ Done"
         listStyle="text-bg-success"
+        @task-added="addTaskToList('doneTasks')"
       />
     </div>
   </div>
 </template>
 
 <script>
+import AddNewTask from "./AddNewTask.vue";
 import NewTask from "./ShowTask.vue";
 import ShowWhenNoTasks from "./ShowWhenNoTasks.vue";
 import TasksList from "./TasksList.vue";
@@ -35,6 +39,7 @@ export default {
     NewTask,
     ShowWhenNoTasks,
     TasksList,
+    AddNewTask,
   },
   data() {
     return {
@@ -51,31 +56,48 @@ export default {
           taskDescription: "Description for To Do Task",
           taskTag: "Urgent",
         },
+        {
+          taskId: "1",
+          taskName: "Sample To Do Task",
+          taskDescription: "Description for To Do Task",
+          taskTag: "Urgent",
+        },
       ],
       inProgressTasks: [],
       doneTasks: [
         {
-          taskId: "3",
-          taskName: "Sample Done Task",
-          taskDescription: "Description for Done Task",
-          taskTag: "Completed",
+          taskId: "1",
+          taskName: "Sample To Do Task",
+          taskDescription: "Description for To Do Task",
+          taskTag: "Urgent",
         },
         {
-          taskId: "3",
-          taskName: "Sample Done Task",
-          taskDescription: "Description for Done Task",
-          taskTag: "Completed",
+          taskId: "1",
+          taskName: "Sample To Do Task",
+          taskDescription: "Description for To Do Task",
+          taskTag: "Urgent",
         },
         {
-          taskId: "3",
-          taskName: "Sample Done Task",
-          taskDescription: "Description for Done Task",
-          taskTag: "Completed",
+          taskId: "1",
+          taskName: "Sample To Do Task",
+          taskDescription: "Description for To Do Task",
+          taskTag: "Urgent",
         },
       ],
     };
   },
+  methods: {
+    addTaskToList(listName) {
+      return (newTask) => {
+        this[listName].push(newTask); // Push the new task to the respective list
+        console.log(`Updated ${listName}:`, this[listName]); // Log the updated task list
+
+        // Log the state of all task lists for debugging
+        console.log("To Do Tasks:", this.toDoTasks);
+        console.log("In Progress Tasks:", this.inProgressTasks);
+        console.log("Done Tasks:", this.doneTasks);
+      };
+    },
+  },
 };
 </script>
-
-<style></style>

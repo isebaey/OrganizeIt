@@ -11,12 +11,13 @@
         <NewTask v-for="task in tasks" :key="task.taskId" :task="task" />
       </div>
     </div>
-    <!-- Emit the custom event from AddTaskBTN -->
+
+    <!-- Add Task Button and AddNewTask form -->
     <AddTaskBTN @add-task="toggleAddTask" />
 
     <!-- Show the AddNewTask component based on showAddTask data -->
     <div v-show="showAddTask">
-      <AddNewTask />
+      <AddNewTask @add-new-task="handleNewTask" />
     </div>
   </div>
 </template>
@@ -30,7 +31,7 @@ import ShowWhenNoTasks from "./ShowWhenNoTasks.vue";
 export default {
   data() {
     return {
-      showAddTask: false, // Initialize as a boolean
+      showAddTask: false,
     };
   },
   components: {
@@ -46,10 +47,12 @@ export default {
   },
   methods: {
     toggleAddTask() {
-      this.showAddTask = !this.showAddTask; // Toggle the value
+      this.showAddTask = !this.showAddTask;
+    },
+    handleNewTask(newTask) {
+      this.$emit("task-added", newTask); // Emit the task upwards
+      this.showAddTask = false; // Hide the form after task is added
     },
   },
 };
 </script>
-
-<style></style>
