@@ -70,18 +70,13 @@ export default {
     },
   },
   methods: {
-    moveTask() {
-      const taskStore = useTasksStore();
-      if (this.task.taskTag === "toDoTasks") {
-        taskStore.moveTask(this.task, "inProgressTasks");
-      } else if (this.task.taskTag === "inProgressTasks") {
-        taskStore.moveTask(this.task, "doneTasks");
-      }
-      // Add more conditions if needed
-    },
     deleteTask() {
       const taskStore = useTasksStore();
       taskStore.deleteTask(this.task);
+    },
+    moveTask() {
+      const taskStore = useTasksStore();
+      taskStore.moveTask(this.task);
     },
   },
 };

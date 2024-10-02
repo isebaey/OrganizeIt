@@ -83,6 +83,7 @@ export default {
         taskName: "",
         taskDescription: "",
         taskTag: "",
+        taskArray: this.arrayName,
       };
     },
   },
