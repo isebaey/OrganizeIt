@@ -10,7 +10,7 @@ export const useTasksStore = defineStore("tasks", {
         taskName: "Design Landing Page",
         taskDescription:
           "Create wireframes and mockups for the new landing page.",
-        taskTag: "Urgent",
+        taskTag: "urgent",
         taskArray: "toDoTasks",
       },
     ],
@@ -20,14 +20,14 @@ export const useTasksStore = defineStore("tasks", {
         taskName: "Develop Authentication Module",
         taskDescription:
           "Implement user login and registration functionalities.",
-        taskTag: "In Progress",
+        taskTag: "low",
         taskArray: "inProgressTasks",
       },
       {
         taskId: "5",
         taskName: "Integrate Payment Gateway",
         taskDescription: "Set up Stripe for handling payments.",
-        taskTag: "Urgent",
+        taskTag: "completed",
         taskArray: "inProgressTasks",
       },
     ],
@@ -39,6 +39,10 @@ export const useTasksStore = defineStore("tasks", {
     addTaskToList(task, arrayName) {
       // Generate a unique taskId for the new task
       task.taskId = Date.now().toString();
+
+      // taskArray is set to the array it belongs to
+      task.taskArray = arrayName;
+
       // Push the new task to the specified list
       this[arrayName].push(task);
       console.log(`Added task to ${arrayName}:`, task);
@@ -56,12 +60,17 @@ export const useTasksStore = defineStore("tasks", {
     },
 
     moveTask(task) {
+      if (task.taskArray == "doneTasks") {
+        return "";
+      }
       console.log(task);
       this.deleteTask(task);
 
       if (task.taskArray == "toDoTasks") {
+        task.taskArray = "inProgressTasks";
         this.addTaskToList(task, "inProgressTasks");
       } else if (task.taskArray == "inProgressTasks") {
+        task.taskArray = "doneTasks";
         this.addTaskToList(task, "doneTasks");
       }
     },

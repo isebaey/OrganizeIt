@@ -1,54 +1,50 @@
-<!-- src/components/ViewToggle.vue -->
 <template>
-  <div class="d-flex">
+  <div class="d-flex gap-4">
     <!-- Trello View Icon -->
     <i
-      class="fas fa-th fa-2x me-3"
+      class="fas fa-th fa-2x"
       :class="{
-        'text-primary': currentView === 'trello',
-        'text-secondary': currentView !== 'trello',
+        'text-active': $route.query.view === 'trello',
+        'text-secondary': $route.query.view !== 'trello',
       }"
       @click="setView('trello')"
       title="Trello View"
-    ></i>
+    >
+      <span class="mx-2 fs-3">Grid</span>
+    </i>
 
     <!-- List View Icon -->
     <i
       class="fas fa-list fa-2x"
       :class="{
-        'text-primary': currentView === 'list',
-        'text-secondary': currentView !== 'list',
+        'text-active': $route.query.view === 'list',
+        'text-secondary': $route.query.view !== 'list',
       }"
       @click="setView('list')"
       title="List View"
-    ></i>
+    >
+      <span class="mx-2 fs-3">List</span>
+    </i>
   </div>
 </template>
 
 <script>
 export default {
   name: "ViewToggle",
-  props: {
-    currentView: {
-      type: String,
-      required: true,
-    },
-  },
   methods: {
     setView(viewType) {
-      this.$emit("change-view", viewType);
+      this.$router.push({
+        path: "/tasks",
+        query: { view: viewType },
+      });
     },
   },
 };
 </script>
 
 <style scoped>
-.text-primary {
-  color: #1abc9c; /* Turquoise Blue */
-}
-
-.text-secondary {
-  color: #6c757d; /* Gray */
+.text-active {
+  color: #3498db;
 }
 
 i {
@@ -57,6 +53,11 @@ i {
 }
 
 i:hover {
-  color: #1abc9c; /* Turquoise Blue on hover */
+  color: #3498db;
+}
+
+span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
 }
 </style>

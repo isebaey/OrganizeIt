@@ -1,12 +1,5 @@
-<!-- src/components/BoardColumn.vue -->
 <template>
   <div>
-    <!-- View Toggle Section -->
-    <div class="d-flex justify-between align-items-center mb-4">
-      <h2 class="h4 text-charcoal mx-2">Task Boards</h2>
-      <ViewToggle :currentView="currentView" @change-view="setView" />
-    </div>
-
     <!-- Conditional Rendering for Views -->
     <div v-if="currentView === 'trello'" class="row g-4 overflow-auto">
       <TasksList
@@ -27,26 +20,25 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import { useTasksStore } from "../../stores/tasks";
 import TasksList from "./TasksList.vue";
 import TaskListView from "./TaskListView.vue";
-import ViewToggle from "./ViewToggle.vue";
 
 export default {
   name: "BoardColumn",
+  props: {
+    currentView: {
+      type: String,
+      required: true,
+    },
+  },
   components: {
     TasksList,
     TaskListView,
-    ViewToggle,
   },
   setup() {
-    const currentView = ref("trello");
     const tasks = useTasksStore();
-
-    const setView = (viewType) => {
-      currentView.value = viewType;
-    };
 
     const allTasks = computed(() => [
       ...tasks.toDoTasks,
@@ -57,25 +49,23 @@ export default {
     const taskLists = [
       {
         title: "📃 To Do",
-        style: "bg-primary",
+        style: "main-color",
         arrayName: "toDoTasks",
       },
       {
-        title: "📈 In Progress",
-        style: "bg-secondary",
+        title: "In Progress",
+        style: "secondary-color",
         arrayName: "inProgressTasks",
       },
       {
-        title: "✅ Done",
-        style: "bg-success",
+        title: "Done",
+        style: "success-color",
         arrayName: "doneTasks",
       },
     ];
 
     return {
-      currentView,
       tasks,
-      setView,
       allTasks,
       taskLists,
     };
@@ -83,19 +73,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.bg-primary {
-  background-color: #1abc9c; /* Turquoise Blue */
-  color: #ffffff;
-}
-
-.bg-secondary {
-  background-color: #e67e22; /* Sunset Orange */
-  color: #ffffff;
-}
-
-.bg-success {
-  background-color: #2ecc71; /* Green */
-  color: #ffffff;
-}
-</style>
+<style scoped></style>

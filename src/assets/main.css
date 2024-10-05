@@ -1,19 +1,23 @@
 /* src/assets/styles.css */
 
+/* Global Variables */
+:root {
+  --main-color: #3498db;
+  --main-bg-color: #f3f6fd;
+}
+
 /* Import Roboto font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #ecf0f1; /* Off-White */
-  color: #2c3e50; /* Charcoal Gray */
+  background-color: var(--main-bg-color) !important; /* Off-White */
 }
 
 /* Navbar Styles */
 .navbar {
   width: 80px;
-  background: linear-gradient(180deg, #1abc9c, #2c3e50);
-  color: #ecf0f1;
+  background: linear-gradient(180deg, #1e2024, #232527);
 }
 
 .navbar a {
@@ -25,7 +29,7 @@ body {
 
 .navbar a:hover,
 .navbar a.active {
-  color: #1abc9c; /* Turquoise Blue */
+  color: var(--main-color);
   border-radius: 8px;
 }
 
@@ -81,12 +85,13 @@ body {
   margin-left: 1rem;
 }
 
-.view-toggle i.active {
-  color: #1abc9c; /* Turquoise Blue */
+.view-toggle i.active,
+.logo {
+  color: var(--main-color);
 }
 
 .view-toggle i:hover {
-  color: #1abc9c;
+  color: var(--main-color);
 }
 
 /* Add Task Button Styles */
@@ -106,4 +111,19 @@ body {
   color: #6c757d;
   font-size: 1.2rem;
   text-align: center;
+}
+
+.main-color {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+.secondary-color {
+  background-color: #e67e22;
+  color: #ffffff;
+}
+
+.success-color {
+  background-color: #2ecc71;
+  color: #ffffff;
 }

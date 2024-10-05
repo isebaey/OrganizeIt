@@ -2,7 +2,7 @@
 <template>
   <div class="col-md-4">
     <div
-      class="d-flex justify-between align-items-center p-3 rounded-top shadow-sm"
+      class="d-flex justify-between align-items-center p-3 rounded-4 shadow-sm"
       :class="listStyle"
     >
       <h5 class="mb-0">{{ listTitle }}</h5>

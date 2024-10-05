@@ -4,69 +4,68 @@
   >
     <div class="d-flex flex-column justify-between h-100">
       <!-- Logo Section -->
-      <a class="navbar-brand d-flex justify-content-center my-4 w-100" href="#">
-        <i class="fa fa-tasks logo fs-1" title="OrgnizeIt logo"></i>
-      </a>
+      <router-link
+        class="navbar-brand d-flex justify-content-center my-4 w-100"
+        :to="{ path: '/' }"
+        title="OrgnizeIt logo"
+      >
+        <i class="fa fa-tasks logo fs-1"></i>
+      </router-link>
       <hr class="text-white w-75 mx-auto mt-1" />
 
-      <!-- Nav Links  -->
+      <!-- Nav Links -->
       <ul
         class="d-flex flex-column align-items-center flex-grow-1 list-unstyled"
       >
         <li class="nav-item my-2">
-          <a
+          <router-link
             class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
-            href="#"
-            title="Home"
+            :to="{ path: '/' }"
+            title="Dashboard"
           >
-            <i class="fa fa-home"></i>
-            <p class="h6">Home</p>
-          </a>
+            <i class="fa fa-dashboard"></i>
+            <p class="h6">Dashboard</p>
+          </router-link>
         </li>
         <li class="nav-item my-2">
-          <a
+          <router-link
             class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
-            href="#"
+            :to="{ path: '/projects' }"
             title="Projects List"
           >
             <i class="fa fa-rocket"></i>
             <p class="h6">Projects</p>
-          </a>
+          </router-link>
         </li>
         <li class="nav-item my-2">
-          <a
+          <router-link
             class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
-            href="#"
-            title="Create A New Project"
+            :to="{ path: '/tasks' }"
+            title="Manage your Tasks"
+          >
+            <i class="fa fa-list"></i>
+            <p class="h6">Tasks</p>
+          </router-link>
+        </li>
+        <li class="nav-item my-2">
+          <router-link
+            class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
+            :to="{ path: '/tags' }"
+            title="Tags"
           >
             <i class="fa fa-tag"></i>
             <p class="h6">Tags</p>
-          </a>
+          </router-link>
         </li>
         <li class="nav-item my-2">
-          <a
+          <router-link
             class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
-            href="#"
-            title="Create A New Project"
+            :to="{ path: '/calendar' }"
+            title="Calendar"
           >
-            <i class="fa fa-add"></i>
-            <p class="h6">Add</p>
-          </a>
-        </li>
-        <li class="nav-item mt-auto">
-          <a
-            class="nav-link my-2 d-flex justify-center"
-            href="#"
-            title="User Settings"
-          >
-            <img
-              src="https://randomuser.me/api/portraits/men/1.jpg"
-              alt="User"
-              title="User Settings"
-              style="width: 50px"
-              class="rounded-5"
-            />
-          </a>
+            <i class="fa fa-calendar"></i>
+            <p class="h6">Calendar</p>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -79,35 +78,20 @@ export default {};
 
 <style scoped>
 .navbar {
-  width: 80px;
-  background: linear-gradient(180deg, #1e2024, #232527);
+  width: 90px;
   color: #ffffff;
-}
-
-.logo {
-  color: #20bfa9;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.8);
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
-.nav-link:hover,
-.nav-link.active {
-  color: #20bfa9;
-  border-radius: 8px;
-  transition: 0.3s ease;
+.nav-link.router-link-active {
+  color: #3498db;
 }
 
 i {
   font-size: 1.5rem;
-}
-
-img.rounded-5:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
 }
 </style>

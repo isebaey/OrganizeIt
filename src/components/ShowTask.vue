@@ -1,6 +1,6 @@
 <!-- src/components/ShowTask.vue -->
 <template>
-  <div class="card task-card">
+  <div class="card task-card rounded-4 border-0">
     <div class="card-body">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h5 class="card-title">{{ task.taskName }}</h5>
@@ -48,8 +48,6 @@ export default {
           return "Low";
         case "completed":
           return "Completed";
-        case "inProgress":
-          return "In Progress";
         default:
           return "General";
       }
@@ -62,8 +60,6 @@ export default {
           return "tag low";
         case "completed":
           return "tag completed";
-        case "inProgress":
-          return "tag inProgress";
         default:
           return "tag general";
       }

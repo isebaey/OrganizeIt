@@ -26,7 +26,7 @@ button {
 }
 
 button:hover {
-  background-color: #16a085; /* Dark Turquoise */
+  background-color: #3498db; /* Dark Turquoise */
   color: #ffffff;
 }
 </style>
