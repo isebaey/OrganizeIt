@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="Projects-section mt-4 bg-white container rounded-5 p-5 mx-auto shadow-sm"
-  >
+  <div class="Projects-section bg-white rounded-5 p-4 shadow-sm">
     <!-- Projects Section Header -->
     <div
       class="projects-section-header d-flex justify-content-between text-muted mb-3"
@@ -31,30 +29,107 @@
     </div>
 
     <!-- Display Projects -->
-    <div class="row">
-      <!-- Project -->
-      <div class="col-md-4">
-        <div class="card p-4 mb-4 rounded-5 border-0 shadow-sm">
-          <div
-            class="header d-flex justify-content-between text-muted mb-3 time fs-6"
-          >
-            <span>December 12</span>
-            <span class="badge bg-success">Done</span>
-          </div>
-          <h3 class="heading mb-3">projects</h3>
-          <div class="progress-section">
-            <p class="fs-6 text-muted">Progress</p>
-            <div class="progress mb-2">
-              <div
-                class="progress-bar"
-                role="progressbar"
-                style="width: 100%"
-                aria-valuenow="70"
-                aria-valuemin="0"
-                aria-valuemax="100"
-              ></div>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Project -->
+        <div class="col-md-4">
+          <div class="card p-4 mb-4 rounded-5 border-0 shadow-sm">
+            <div
+              class="header d-flex justify-content-between text-muted mb-3 time fs-6"
+            >
+              <span>December 12</span>
+              <span class="badge bg-success">Done</span>
             </div>
-            <p class="fs-6 text-end">100%</p>
+            <h3 class="heading mb-3">projects</h3>
+            <div class="progress-section">
+              <p class="fs-6 text-muted">Progress</p>
+              <div class="progress mb-2">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 100%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <p class="fs-6 text-end">100%</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 mb-4 rounded-5 border-0 shadow-sm">
+            <div
+              class="header d-flex justify-content-between text-muted mb-3 time fs-6"
+            >
+              <span>December 12</span>
+              <span class="badge bg-success">Done</span>
+            </div>
+            <h3 class="heading mb-3">projects</h3>
+            <div class="progress-section">
+              <p class="fs-6 text-muted">Progress</p>
+              <div class="progress mb-2">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 100%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <p class="fs-6 text-end">100%</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 mb-4 rounded-5 border-0 shadow-sm">
+            <div
+              class="header d-flex justify-content-between text-muted mb-3 time fs-6"
+            >
+              <span>December 12</span>
+              <span class="badge bg-success">Done</span>
+            </div>
+            <h3 class="heading mb-3">projects</h3>
+            <div class="progress-section">
+              <p class="fs-6 text-muted">Progress</p>
+              <div class="progress mb-2">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 100%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <p class="fs-6 text-end">100%</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-4 mb-4 rounded-5 border-0 shadow-sm">
+            <div
+              class="header d-flex justify-content-between text-muted mb-3 time fs-6"
+            >
+              <span>December 12</span>
+              <span class="badge bg-success">Done</span>
+            </div>
+            <h3 class="heading mb-3">projects</h3>
+            <div class="progress-section">
+              <p class="fs-6 text-muted">Progress</p>
+              <div class="progress mb-2">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 100%"
+                  aria-valuenow="70"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <p class="fs-6 text-end">100%</p>
+            </div>
           </div>
         </div>
       </div>

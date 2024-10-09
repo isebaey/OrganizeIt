@@ -15,15 +15,22 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 // Srotre Management
 import { createPinia } from "pinia";
 
+// Import VueDatePicker
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+
 // Import Vue Router
 import { createRouter, createWebHistory } from "vue-router";
 import BoardColumn from "./components/BoardColumn.vue";
 import ProjectBoard from "./components/projects/ProjectBoard.vue";
+import Calender from "./components/calender/Calender.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/projects", component: ProjectBoard },
+    ,
+    { path: "/calender", component: Calender },
     {
       path: "/tasks",
       component: BoardColumn,
@@ -45,5 +52,7 @@ app.use(router);
 // Create a Pinia instance
 const pinia = createPinia();
 app.use(pinia);
+
+app.component("VueDatePicker", VueDatePicker);
 
 app.mount("#app");

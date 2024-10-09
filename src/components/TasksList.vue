@@ -7,7 +7,7 @@
     >
       <h5 class="mb-0">{{ listTitle }}</h5>
     </div>
-    <div class="p-3 bg-offwhite" style="min-height: 300px">
+    <div class="p-3 px-1">
       <div v-if="tasks.length === 0" class="no-tasks">
         <ShowWhenNoTasks />
       </div>
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Add Task Button and AddNewTask form -->
-    <div class="p-2">
+    <div class="">
       <AddTaskBTN @add-task="toggleAddTask" />
       <transition name="fade">
         <AddNewTask

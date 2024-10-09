@@ -8,14 +8,24 @@
       </div>
       <p class="card-text">{{ task.taskDescription }}</p>
       <!-- Interactive Buttons -->
-      <div class="d-flex justify-content-end mt-3">
-        <button
-          class="btn btn-sm btn-outline-primary me-2"
-          @click="moveTask"
-          title="Move Task"
-        >
-          <i class="fas fa-arrow-right"></i>
-        </button>
+      <div class="d-flex justify-content-between mt-3">
+        <div class="move-task-btns">
+          <button
+            class="btn btn-sm btn-outline-primary me-2"
+            @click="moveTask('left')"
+            title="Move Left"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+
+          <button
+            class="btn btn-sm btn-outline-primary me-2"
+            @click="moveTask('right')"
+            title="Move Right"
+          >
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
         <button
           class="btn btn-sm btn-outline-danger"
           @click="deleteTask"
@@ -70,9 +80,9 @@ export default {
       const taskStore = useTasksStore();
       taskStore.deleteTask(this.task);
     },
-    moveTask() {
+    moveTask(direction) {
       const taskStore = useTasksStore();
-      taskStore.moveTask(this.task);
+      taskStore.moveTask(this.task, direction);
     },
   },
 };

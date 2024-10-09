@@ -1,6 +1,14 @@
 <template>
-  <AddNewProject />
-  <ProjectCard />
+  <main class="container-fluid">
+    <div class="row justify-content-between px-5">
+      <div class="col-9">
+        <ProjectCard />
+      </div>
+      <div class="col-3">
+        <AddNewProject />
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>

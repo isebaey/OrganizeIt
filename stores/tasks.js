@@ -59,20 +59,44 @@ export const useTasksStore = defineStore("tasks", {
       }
     },
 
-    moveTask(task) {
-      if (task.taskArray == "doneTasks") {
-        return "";
-      }
-      console.log(task);
-      this.deleteTask(task);
+    moveTask(task, direction) {
+      const { taskArray } = task;
 
-      if (task.taskArray == "toDoTasks") {
-        task.taskArray = "inProgressTasks";
-        this.addTaskToList(task, "inProgressTasks");
-      } else if (task.taskArray == "inProgressTasks") {
-        task.taskArray = "doneTasks";
-        this.addTaskToList(task, "doneTasks");
+      // Prevent moving left from toDoTasks or right from doneTasks
+      if (
+        (taskArray === "toDoTasks" && direction === "left") ||
+        (taskArray === "doneTasks" && direction === "right")
+      ) {
+        return; //  return if the move is not allowed
       }
+
+      // Create a copy of the task to avoid directly modifying the original before deleting it ahhhhhaaa
+      const taskCopy = { ...task };
+
+      // Handle moving left
+      if (direction === "left") {
+        if (taskArray === "inProgressTasks") {
+          taskCopy.taskArray = "toDoTasks";
+          this.addTaskToList(taskCopy, "toDoTasks");
+        } else if (taskArray === "doneTasks") {
+          taskCopy.taskArray = "inProgressTasks";
+          this.addTaskToList(taskCopy, "inProgressTasks");
+        }
+      }
+
+      // Handle moving right
+      else if (direction === "right") {
+        if (taskArray === "toDoTasks") {
+          taskCopy.taskArray = "inProgressTasks";
+          this.addTaskToList(taskCopy, "inProgressTasks");
+        } else if (taskArray === "inProgressTasks") {
+          taskCopy.taskArray = "doneTasks";
+          this.addTaskToList(taskCopy, "doneTasks");
+        }
+      }
+
+      // Delete the original task after moving it to a new list
+      this.deleteTask(task);
     },
   },
 });

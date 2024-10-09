@@ -1,7 +1,7 @@
 <!-- src/components/AddNewTask.vue -->
 <template>
   <!-- Add Task Form -->
-  <div class="bg-offwhite rounded-lg shadow p-4 my-3">
+  <div class="bg-offwhite rounded-lg shadow-sm p-4 my-3 rounded-4">
     <form @submit.prevent="addTask">
       <div class="mb-3">
         <label for="taskName" class="form-label">Task Name</label>
@@ -37,7 +37,6 @@
           <option value="urgent">Urgent</option>
           <option value="low">Low</option>
           <option value="completed">Completed</option>
-          <option value="inProgress">In Progress</option>
         </select>
       </div>
       <div class="d-flex justify-end">

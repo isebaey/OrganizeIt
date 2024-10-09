@@ -11,7 +11,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  background-color: var(--main-bg-color) !important; /* Off-White */
+  background-color: var(--main-bg-color) !important;
 }
 
 /* Navbar Styles */
@@ -126,4 +126,13 @@ body {
 .success-color {
   background-color: #2ecc71;
   color: #ffffff;
+}
+
+.dp__input_wrap {
+  display: none;
+}
+
+.dp__main div {
+  width: 100%;
+  border-radius: 2rem;
 }

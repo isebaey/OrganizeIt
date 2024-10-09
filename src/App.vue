@@ -9,7 +9,7 @@
     <main class="flex-grow-1 overflow-auto">
       <!-- Header for View Toggle and user data -->
       <header
-        class="d-flex align-items-center mx-3 py-4 px-4 my-4 bg-white rounded-4"
+        class="d-flex align-items-center py-4 px-4 mb-4 bg-white rounded-4"
       >
         <!-- Pass currentView and listen for the event to change the view -->
         <ViewToggle :currentView="currentView" @change-view="setView" />
@@ -33,7 +33,6 @@
         </div>
       </header>
 
-      <!-- Only RouterView, no need for manual BoardColumn -->
       <RouterView class="px-4" />
     </main>
   </div>
