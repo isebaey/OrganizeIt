@@ -1,8 +1,13 @@
+<!-- App.vue -->
 <template>
   <div class="d-flex">
     <!-- Fixed Sidebar -->
     <aside class="navbar d-flex flex-column align-items-center">
       <NavBar />
+      <!-- Add Navigation Link to Calendar -->
+      <router-link to="/calender" class="btn btn-primary mt-3">
+        Go to Calendar
+      </router-link>
     </aside>
 
     <!-- Main Content -->
@@ -33,7 +38,8 @@
         </div>
       </header>
 
-      <RouterView class="px-4" />
+      <!-- Router View -->
+      <router-view class="px-4"></router-view>
     </main>
   </div>
 </template>
@@ -56,7 +62,7 @@ export default {
   },
   methods: {
     setView(viewType) {
-      console.log("Switching to:", viewType); // Add this
+      console.log("Switching to:", viewType); // For debugging
 
       this.$router.push({
         path: "/tasks",

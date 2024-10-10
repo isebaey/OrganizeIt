@@ -1,6 +1,6 @@
 <!-- src/components/TasksList.vue -->
 <template>
-  <div class="col-md-4">
+  <div class="col-md-4 px-5">
     <div
       class="d-flex justify-between align-items-center p-3 rounded-4 shadow-sm"
       :class="listStyle"

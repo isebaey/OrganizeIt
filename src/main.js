@@ -1,3 +1,4 @@
+// main.js
 import "./assets/main.css";
 
 import { createApp } from "vue";
@@ -12,7 +13,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 // Import Font Awesome CSS
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-// Srotre Management
+// State Management with Pinia
 import { createPinia } from "pinia";
 
 // Import VueDatePicker
@@ -23,14 +24,16 @@ import "@vuepic/vue-datepicker/dist/main.css";
 import { createRouter, createWebHistory } from "vue-router";
 import BoardColumn from "./components/BoardColumn.vue";
 import ProjectBoard from "./components/projects/ProjectBoard.vue";
-import Calender from "./components/calender/Calender.vue";
+
+import Tags from "./components/Tags.vue";
+import Calendar from "./components/Calendar.vue";
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/projects", component: ProjectBoard },
-    ,
-    { path: "/calender", component: Calender },
+    { path: "/calendar", component: Calendar },
+    { path: "/tags", component: Tags },
     {
       path: "/tasks",
       component: BoardColumn,
@@ -46,13 +49,11 @@ const router = createRouter({
 
 const app = createApp(App);
 
-// Create router instance
+// Use Router and Pinia
 app.use(router);
+app.use(createPinia());
 
-// Create a Pinia instance
-const pinia = createPinia();
-app.use(pinia);
-
+// Register Global Components
 app.component("VueDatePicker", VueDatePicker);
 
 app.mount("#app");
