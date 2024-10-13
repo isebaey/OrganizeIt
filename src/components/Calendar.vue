@@ -55,9 +55,10 @@ export default {
         `Event: ${info.event.title}\nDescription: ${info.event.extendedProps.description}`
       );
     },
-    handleDateClick(info) {
-      alert(`Date clicked: ${info.dateStr}`);
-    },
+    // handleDateClick(info) {
+    //   alert(`Date clicked: ${info.dateStr}`);
+    // },
+
     handleEventHover(info) {
       tippy(info.el, {
         content: info.event.extendedProps.description || info.event.title,
@@ -88,38 +89,53 @@ export default {
 
 <style scoped>
 .compact-calendar {
-  max-width: 800px;
+  max-width: 100vh;
   margin: 0 auto;
 }
 
-.fc {
-  font-size: 0.8rem;
+:deep(.fc-col-header-cell) {
+  border-bottom: 0;
+  font-weight: normal;
+  font-size: small;
 }
 
-.fc-header-toolbar {
+:deep(.fc-col-header-cell a) {
+  text-decoration: none !important;
+  color: #70757a;
+}
+
+:deep(.fc-header-toolbar) {
   padding: 5px 10px;
 }
 
-.fc-daygrid-day-number {
-  font-size: 0.7rem;
+:deep(.fc-daygrid-day-number) {
+  text-decoration: none;
+  color: #3c4043;
+  margin-inline: auto;
 }
 
-.fc-event {
+:deep(.fc-event) {
   font-size: 0.7rem;
   padding: 2px;
 }
 
-.fc-toolbar-title {
-  font-size: 1rem;
+:deep(.fc-toolbar-title) {
+  color: #3498db;
+  font-weight: bold;
+  font-size: x-large;
 }
 
-.fc-prev-button,
-.fc-next-button {
+:deep(.fc-prev-button),
+:deep(.fc-next-button) {
   font-size: 0.8rem;
   padding: 4px 8px;
 }
 
-button {
+:deep(button) {
   background-color: #3498db !important;
+  border: none !important;
+  margin-right: 0.2rem !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
 }
 </style>

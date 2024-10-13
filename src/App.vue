@@ -4,10 +4,6 @@
     <!-- Fixed Sidebar -->
     <aside class="navbar d-flex flex-column align-items-center">
       <NavBar />
-      <!-- Add Navigation Link to Calendar -->
-      <router-link to="/calender" class="btn btn-primary mt-3">
-        Go to Calendar
-      </router-link>
     </aside>
 
     <!-- Main Content -->

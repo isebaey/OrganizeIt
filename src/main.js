@@ -27,6 +27,7 @@ import ProjectBoard from "./components/projects/ProjectBoard.vue";
 
 import Tags from "./components/Tags.vue";
 import Calendar from "./components/Calendar.vue";
+import Timer from "./components/Timer.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -34,6 +35,7 @@ const router = createRouter({
     { path: "/projects", component: ProjectBoard },
     { path: "/calendar", component: Calendar },
     { path: "/tags", component: Tags },
+    { path: "/timer", component: Timer },
     {
       path: "/tasks",
       component: BoardColumn,

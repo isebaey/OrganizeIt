@@ -67,6 +67,16 @@
             <p class="h6">Calendar</p>
           </router-link>
         </li>
+        <li class="nav-item my-2">
+          <router-link
+            class="nav-link py-3 d-flex flex-column gap-2 align-items-center"
+            :to="{ path: '/timer' }"
+            title="Set a timer by using Pomodoro"
+          >
+            <i class="fa fa-stopwatch"></i>
+            <p class="h6">Timer</p>
+          </router-link>
+        </li>
       </ul>
     </div>
   </nav>
@@ -77,11 +87,6 @@ export default {};
 </script>
 
 <style scoped>
-.navbar {
-  width: 90px;
-  color: #ffffff;
-}
-
 .nav-link {
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.2s ease;

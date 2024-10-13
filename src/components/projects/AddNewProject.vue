@@ -4,7 +4,7 @@
   >
     <!-- Project Info -->
     <div class="project-info">
-      <label for="project-title" class="h4 mb-3 text-dark">Project Info</label>
+      <label for="project-title" class="h4 mb-3 text-muted">Add Project</label>
       <input
         type="text"
         id="project-title"
