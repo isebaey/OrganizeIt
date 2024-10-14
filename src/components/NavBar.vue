@@ -2,20 +2,10 @@
   <nav
     class="navbar d-flex flex-column position-fixed top-0 start-0 shadow vh-100"
   >
-    <div class="d-flex flex-column justify-between h-100">
-      <!-- Logo Section -->
-      <router-link
-        class="navbar-brand d-flex justify-content-center my-4 w-100"
-        :to="{ path: '/' }"
-        title="OrgnizeIt logo"
-      >
-        <i class="fa fa-tasks logo fs-1"></i>
-      </router-link>
-      <hr class="text-white w-75 mx-auto mt-1" />
-
+    <div class="h-100">
       <!-- Nav Links -->
       <ul
-        class="d-flex flex-column align-items-center flex-grow-1 list-unstyled"
+        class="d-flex flex-column align-items-center justify-content-center list-unstyled h-75"
       >
         <li class="nav-item my-2">
           <router-link

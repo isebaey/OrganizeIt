@@ -132,10 +132,13 @@ export default {
 }
 
 :deep(button) {
-  background-color: #3498db !important;
   border: none !important;
   margin-right: 0.2rem !important;
   padding: 4px 8px !important;
   border-radius: 6px !important;
+  transition: 300ms all;
+}
+:deep(button):hover {
+  opacity: 0.7 !important;
 }
 </style>

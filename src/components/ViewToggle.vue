@@ -1,8 +1,11 @@
 <template>
-  <div class="d-flex gap-4">
+  <div
+    class="d-flex gap-2 justify-content-center align-items-center position-relative"
+  >
+    <h4 class="position-absolute start-0">Project Name</h4>
     <!-- Trello View Icon -->
     <i
-      class="fas fa-th fa-2x"
+      class="fas fa-th fs-5"
       :class="{
         'text-active': $route.query.view === 'trello',
         'text-secondary': $route.query.view !== 'trello',
@@ -10,12 +13,12 @@
       @click="setView('trello')"
       title="Trello View"
     >
-      <span class="mx-2 fs-3">Grid</span>
+      <span class="mx-2 fs-5">Grid</span>
     </i>
 
     <!-- List View Icon -->
     <i
-      class="fas fa-list fa-2x"
+      class="fas fa-list fs-5"
       :class="{
         'text-active': $route.query.view === 'list',
         'text-secondary': $route.query.view !== 'list',
@@ -23,7 +26,7 @@
       @click="setView('list')"
       title="List View"
     >
-      <span class="mx-2 fs-3">List</span>
+      <span class="mx-2 fs-5">List</span>
     </i>
   </div>
 </template>

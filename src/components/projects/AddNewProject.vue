@@ -1,100 +1,55 @@
 <template>
-  <div
-    class="add-new-project bg-white p-4 rounded-5 shadow-sm d-flex d-flex flex-column"
-  >
+  <div class="add-new-project-sidebar shadow-sm p-3 bg-white rounded-4">
     <!-- Project Info -->
-    <div class="project-info">
-      <label for="project-title" class="h4 mb-3 text-muted">Add Project</label>
+    <div class="project-info mb-3">
+      <h5 class="text-muted">Add Project</h5>
       <input
         type="text"
         id="project-title"
-        class="form-control mb-3 rounded-5 p-3"
+        class="form-control mb-2"
         placeholder="Project Title"
         aria-label="Project Title"
       />
       <textarea
-        name="project-description"
         id="project-description"
-        class="form-control text-muted rounded-5 p-3"
-        rows="5"
-        placeholder="Write a short description..."
+        class="form-control"
+        rows="3"
+        placeholder="Short description..."
         aria-label="Project Description"
       ></textarea>
     </div>
 
     <!-- Project Priority -->
-    <div class="project-priority">
-      <label for="project-priority" class="h4 mb-3 text-dark">Priority</label>
-      <div class="priority-card p-3 lh-lg rounded-5 border">
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            value="Low"
-            name="priority"
-            id="priority-low"
-            checked
-          />
-          <label class="form-check-label" for="priority-low">Low</label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            value="Medium"
-            name="priority"
-            id="priority-medium"
-          />
-          <label class="form-check-label" for="priority-medium">Medium</label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            value="High"
-            name="priority"
-            id="priority-high"
-          />
-          <label class="form-check-label" for="priority-high">High</label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            value="Urgent"
-            name="priority"
-            id="priority-urgent"
-          />
-          <label class="form-check-label" for="priority-urgent">Urgent</label>
-        </div>
-      </div>
+    <div class="project-priority mb-3">
+      <h5 class="text-muted">Priority</h5>
+      <select id="project-priority" class="form-select">
+        <option value="" disabled selected>Choose Priority</option>
+        <option value="Low">Low</option>
+        <option value="Medium">Medium</option>
+        <option value="High">High</option>
+        <option value="Urgent">Urgent</option>
+      </select>
     </div>
 
     <!-- Project Timeline -->
-    <div class="project-timeline">
-      <label for="project-timeline" class="h4 mb-3 text-dark"
-        >Set Timeline</label
-      >
+    <div class="project-timeline mb-3">
+      <h5 class="text-muted">Set Timeline</h5>
       <VueDatePicker
         v-model="date"
-        id="project-timeline"
         aria-label="Project Timeline"
         :inline="{ input: true }"
         :enable-time-picker="false"
         text-input
         auto-apply
-        class=""
+        class="form-control p-2"
       ></VueDatePicker>
-      <div class="buttons d-flex justify-content-center">
-        <div class="mt-3">
-          <button type="submit" class="btn btn-primary btn-lg me-3 rounded-5">
-            + Create Now
-          </button>
-          <button type="button" class="btn btn-lg btn-secondary rounded-5">
-            × Not Now
-          </button>
-        </div>
-      </div>
+    </div>
+
+    <!-- Action Button -->
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary rounded-pill">
+        + Create Now
+      </button>
     </div>
   </div>
 </template>
@@ -103,45 +58,42 @@
 import VueDatePicker from "@vuepic/vue-datepicker";
 import "@vuepic/vue-datepicker/dist/main.css";
 
-export default {};
+export default {
+  data() {
+    return {
+      date: null,
+    };
+  },
+};
 </script>
 
 <style scoped>
-.add-new-project {
-  gap: 1.5rem;
+.add-new-project-sidebar {
+  height: auto;
 }
 
-.priority-card {
-  background-color: #f8f9fa;
+.text-primary {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--main-color);
 }
 
-.form-control {
-  border-radius: 0.5rem;
+.form-control,
+.form-select {
+  border-radius: 0.75rem;
 }
 
-.btn {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+.dp__main {
+  border: none;
 }
 
-.btn-primary {
+button.btn-primary {
   background-color: var(--main-color);
-  border-color: var(--main-color);
+  transition: background-color 0.3s;
+  border: none;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
-}
-
-.btn-secondary:hover {
-  background-color: #5a6268;
-  border-color: #5a6268;
+button.btn-primary:hover {
+  background-color: #2980b9;
 }
 </style>

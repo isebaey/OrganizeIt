@@ -1,4 +1,5 @@
 <!-- App.vue -->
+
 <template>
   <div class="d-flex">
     <!-- Fixed Sidebar -->
@@ -9,31 +10,7 @@
     <!-- Main Content -->
     <main class="flex-grow-1 overflow-auto">
       <!-- Header for View Toggle and user data -->
-      <header
-        class="d-flex align-items-center py-4 px-4 mb-4 bg-white rounded-4"
-      >
-        <!-- Pass currentView and listen for the event to change the view -->
-        <ViewToggle :currentView="currentView" @change-view="setView" />
-
-        <!-- Search component -->
-        <SearchBox class="ms-4" />
-
-        <div
-          class="d-flex justify-content-between align-items-center gap-2 ms-auto"
-        >
-          <a href="#" title="User Settings">
-            <img
-              src="https://randomuser.me/api/portraits/men/1.jpg"
-              alt="User"
-              title="User Settings"
-              style="width: 50px"
-              class="rounded-5"
-            />
-          </a>
-          <span class="text-uppercase fw-bold">sebaey</span>
-        </div>
-      </header>
-
+      <TopHeader />
       <!-- Router View -->
       <router-view class="px-4"></router-view>
     </main>
@@ -42,24 +19,31 @@
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import SearchBox from "./components/SearchBox.vue";
-import ViewToggle from "./components/ViewToggle.vue";
+import TopHeader from "./components/TopHeader.vue";
 
 export default {
   components: {
     NavBar,
-    SearchBox,
-    ViewToggle,
+    TopHeader,
   },
   data() {
     return {
-      currentView: "trello", // Set the default view in App.vue
+      currentView: "trello",
     };
+  },
+  mounted() {
+    // Trigger animation once on page load
+    const fallingZ = document.querySelector(".falling-z");
+    fallingZ.classList.add("auto-fall");
+
+    // Remove auto-fall class after animation completes so that hover works correctly
+    setTimeout(() => {
+      fallingZ.classList.remove("auto-fall");
+    }, 1500); // Length of the animation in ms
   },
   methods: {
     setView(viewType) {
       console.log("Switching to:", viewType); // For debugging
-
       this.$router.push({
         path: "/tasks",
         query: { view: viewType },
@@ -69,9 +53,4 @@ export default {
 };
 </script>
 
-<style scoped>
-/* Ensure the sidebar takes full height */
-aside.navbar {
-  height: 100vh;
-}
-</style>
+<style scoped></style>

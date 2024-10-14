@@ -1,7 +1,14 @@
 <template>
   <div>
+    <!-- Pass currentView and listen for the event to change the view -->
+
+    <ViewToggle :currentView="currentView" @change-view="setView" />
+
     <!-- Conditional Rendering for Views -->
-    <div v-if="currentView === 'trello'" class="row g-4 overflow-auto">
+    <div
+      v-if="currentView === 'trello'"
+      class="row g-4 overflow-auto pt-4 px-5 mx-5"
+    >
       <TasksList
         v-for="list in taskLists"
         :key="list.arrayName"
@@ -24,6 +31,7 @@ import { computed } from "vue";
 import { useTasksStore } from "../../stores/tasks";
 import TasksList from "./TasksList.vue";
 import TaskListView from "./TaskListView.vue";
+import ViewToggle from "./ViewToggle.vue";
 
 export default {
   name: "BoardColumn",
@@ -36,6 +44,7 @@ export default {
   components: {
     TasksList,
     TaskListView,
+    ViewToggle,
   },
   setup() {
     const tasks = useTasksStore();

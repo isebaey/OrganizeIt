@@ -1,5 +1,5 @@
 <template>
-  <div class="search-wrapper rounded-4">
+  <div class="search-wrapper my-2 rounded-4">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
@@ -28,7 +28,7 @@ export default {};
 .search-wrapper {
   border-radius: 20px;
   padding-right: 12px;
-  height: 60px;
+  height: 40px;
   padding-inline: 15px;
   align-items: center;
   color: #3498db;
